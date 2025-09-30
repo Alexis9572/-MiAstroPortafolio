@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+@reference "tailwindcss/utilities";
+
+/* ============================
+   Estilos específicos de index
+=============================== */
+
+/* Fondo degradado del hero (oscuro con matices azules) */
+.bg-hero {
+  /* no hace falta position relative: las partículas son globales */
+  background:
+    radial-gradient(1000px 420px at 50% -15%, rgba(252, 252, 252, 0.18), transparent),
+    linear-gradient(180deg, #0b1120 0%, #111827 100%);
+  color: #e5e7eb;
+  overflow: hidden;
+}
+
+/* Splash (visible al inicio) */
+#intro-splash {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Cuando JS añade .hide, se desvanece */
+#intro-splash.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease-out;  /* ajusta duración aquí */
+}
+
+/* Texto con efecto máquina de escribir */
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid var(--brand, #f7f7f7);
+  white-space: nowrap;
+  margin: 0 auto;
+  width: 0ch;
+  animation: typing-steps 2.5s steps(var(--chars, 26)) forwards,
+             caret .75s step-end infinite;
+}
+
+@keyframes typing-steps {
+  from { width: 0ch; }
+  to   { width: var(--chars, 26)ch; }
+}
+
+@keyframes caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--brand, #ffffff); }
+}
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-semibold text-white shadow-md transition-transform transform hover:scale-105;
+  background: linear-gradient(to right, #3b82f6, #418794);
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-full font-semibold text-white shadow-md transition-transform transform hover:scale-105;
+  background: linear-gradient(to right, #9333ea, #ec4899);
+}

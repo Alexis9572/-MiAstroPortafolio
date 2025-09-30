@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+/* ===== Base (global) ===== */
+@layer base {
+  html { scroll-behavior: smooth; }
+  :root { --brand: #fdfdfd; }
+  body { @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100; }
+}
+
+/* ===== Components (helpers reutilizables) ===== */
+@layer components {
+  .container-narrow { @apply max-w-[860px] mx-auto; }
+
+  .card-soft { @apply rounded-2xl border border-black/5 shadow-sm dark:border-white/10; }
+
+  .badge-metric {
+    @apply inline-flex items-center font-semibold px-3 py-2 rounded-full
+           bg-slate-900 text-white dark:bg-white dark:text-slate-900;
+  }
+
+  .avatar { @apply rounded-full border-4 border-white shadow-md; }
+
+  .site-footer { @apply border-t border-white/10; }
+
+  /* Tarjeta informativa reutilizable (Sobre mí) */
+  .sobre-card { @apply p-4 border border-slate-200 rounded-xl bg-slate-50 dark:bg-white/5 dark:border-white/10; }
+}
+
+/* ===== Utilities extra ===== */
+@layer utilities {
+  /* Subrayado del enlace activo del navbar */
+  .nav-active { position: relative; }
+  .nav-active::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -6px;
+    height: 3px; border-radius: 3px; background: var(--brand);
+  }
+
+  /* Partículas: lienzo GLOBAL a pantalla completa (en todas las páginas) */
+  #particles-bg{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;        /* el contenido (nav/main/footer) usa z-30 en el layout */
+    pointer-events: none;
+  }
+}
+
+
+
+/* global.scss */
+
+.contact-container {
+  @apply w-full py-12 rounded-none; /* ocupa todo el ancho, sin bordes redondeados */
+  background: linear-gradient(135deg, #403f46, #313944); /* degradado de morado a azul */
+  color: white; /* opcional, texto claro sobre degradado */
+}
+
+
+
+

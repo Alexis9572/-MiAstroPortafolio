@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contacto · Alexis Torres">
+  <!-- Contenedor que ocupa todo el ancho -->
+  <div class="w-full bg-gray-100 dark:bg-gray-900 py-12">
+    <main class="contact-container mx-auto px-6">
+
+      <!-- Título -->
+      <h1 class="text-4xl font-bold text-center text-gray-900 dark:text-white relative mb-12
+                 after:content-[''] after:block after:w-24 after:h-1 after:rounded after:mx-auto after:mt-3 after:bg-gradient-to-r from-blue-600 to-purple-600">
+        Contacto
+      </h1>
+
+      <!-- Info de contacto -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md mb-8 p-6 space-y-4">
+        <div class="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+          <span class="text-blue-600 text-lg">👤</span>
+          <span><strong>Nombres:</strong> Aldair Alexis</span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+          <span class="text-red-500 text-lg">✉️</span>
+          <span><strong>Email:</strong> <a href="mailto:60729584@continental.edu.pe" class="underline hover:text-blue-500">60729584@continental.edu.pe</a></span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+          <span class="text-green-500 text-lg">📞</span>
+          <span><strong>Teléfono:</strong> <a href="tel:+51837927928" class="underline hover:text-blue-500">+51 837927928</a></span>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <form class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 space-y-6" id="form-contacto" novalidate>
+        <div id="form-feedback-area"></div>
+
+        <!-- Nombre y Correo lado a lado -->
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label for="nombre" class="block mb-1 font-medium text-gray-700 dark:text-gray-200">Nombre</label>
+            <input type="text" id="nombre" placeholder="Tu nombre" required
+                   class="w-full rounded-lg border border-gray-300 dark:border-gray-600 p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100"/>
+          </div>
+
+          <div>
+            <label for="correo" class="block mb-1 font-medium text-gray-700 dark:text-gray-200">Correo</label>
+            <input type="email" id="correo" placeholder="ejemplo@correo.com" required
+                   class="w-full rounded-lg border border-gray-300 dark:border-gray-600 p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100"/>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <label for="mensaje" class="block mb-1 font-medium text-gray-700 dark:text-gray-200">Mensaje</label>
+          <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje..." required
+                    class="w-full rounded-lg border border-gray-300 dark:border-gray-600 p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:text-gray-100"></textarea>
+        </div>
+
+        <!-- Botón -->
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+          Enviar Mensaje
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <!-- Script simple de validación -->
+  <script is:inline>
+    (function(){
+      const form = document.getElementById('form-contacto');
+      const feedbackArea = document.getElementById('form-feedback-area');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const correo = document.getElementById('correo').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !correo || !mensaje) {
+          feedbackArea.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded">
+            Por favor completa todos los campos.
+          </div>`;
+          return;
+        }
+
+        feedbackArea.innerHTML = `<div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded">
+          Mensaje enviado con éxito. ¡Gracias!
+        </div>`;
+
+        form.reset();
+
+        setTimeout(() => {
+          feedbackArea.innerHTML = '';
+        }, 5000);
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/index.css"; // bg-hero, typing, splash
+
+const title = "Inicio · Alexis Torres";
+const description = "Portafolio profesional de Alexis Torres: Estudiante de Ingeniería de Sistemas.";
+---
+
+<BaseLayout {title} {description}>
+
+  <!-- Splash -->
+  <div
+    id="intro-splash"
+    class="fixed inset-0 z-[999] grid place-items-center bg-slate-950 text-white transition-opacity duration-200 opacity-100"
+  >
+    <div class="text-center">
+      <h1 class="text-3xl md:text-4xl font-bold drop-shadow"><strong>Alexis Torres</strong></h1>
+      <p class="opacity-80"><strong>Estudiante universitario</strong></p>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="bg-hero border-b border-white/10 py-12 text-center">
+    <div class="container container-narrow">
+      <img
+        src="/img/perfil.jpg"
+        alt="Foto de Alexis Torres"
+        width="160" height="160"
+        class="avatar mx-auto mb-5"
+      />
+
+      <!-- Ajusta --chars según el texto -->
+      <h2 class="typing text-2xl md:text-3xl font-bold" style="--chars: 31">
+        ¡Hola! Soy Alexis Torres
+      </h2>
+
+      <p class="mt-2 text-slate-200/90 max-w-2xl mx-auto">
+        Estudiante universitario apasionado por la <strong>tecnología</strong> y el
+        <strong>desarrollo de software</strong>. Interesado en <strong>ciberseguridad</strong>, <strong>análisis de datos</strong> y
+        <strong>arquitectura de sistemas</strong>. Mi objetivo es seguir aprendiendo,
+        aportar soluciones innovadoras y construir proyectos que generen impacto.
+      </p>
+
+      <!-- Botones -->
+          <div class="actions mt-6 flex justify-center gap-3">
+            <a href="/proyectos" class="btn-primary">Ver Proyectos</a>
+            <a href="/contacto" class="btn-secondary">Contáctame</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+ 
