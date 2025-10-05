@@ -58,6 +58,18 @@
   color: white; /* opcional, texto claro sobre degradado */
 }
 
+/* MANDAR TODO DETRAS*/
+
+.bg-hero {
+  position: relative;
+  z-index: 0;
+}
+
+main, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 
