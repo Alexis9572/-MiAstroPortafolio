@@ -73,3 +73,34 @@ main, section, footer {
 
 
 
+header {
+  background-color: #161616; /* negro */
+  color: #fff;
+  border-bottom: 1px solid #ffffff;
+}
+
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  color: #00bcd4; /* celeste al pasar el mouse */
+}
+
+
+
+
+/* FOOTER */
+.site-footer {
+  background-color: #000;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+.site-footer a {
+  color: #00bcd4;
+}
+
+.site-footer a:hover {
+  color: #26d9ff;
+}
